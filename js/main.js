@@ -1,32 +1,48 @@
 const allSliders =document.querySelectorAll('.copy-how-it-work-item');
 const sliderList = document.querySelector('.copy-how-it-work-list')
-const activeContainer = document.querySelector('.active-slider')
 
 
-function activeSlide (result) {
-  
-    if(result.contains('active')) {
-        activeContainer.appendChild(result)
+let offset = 0
+document.querySelector('.next-slide').addEventListener('click', ()=> {
+    offset = offset + 458;
+    
+    if(offset > 1374) {
+        offset = 0
+        sliderList.style.left = offset;
     }
 
-    if(result.id === result.id) {
-          console.log(result.id)
-    }  
-      
+    sliderList.style.left = -offset + 'px';
+    document.querySelector('.next-slide p').classList.add('active-btn')
+    document.querySelector('.previously-slide p').classList.remove('active-btn')
+})
+
+
+document.querySelector('.previously-slide').addEventListener('click', ()=> {
+    offset = offset - 458;
     
-   
-}
+    if(offset < 0)  {
+         offset = 1374;
+        sliderList.style.left = offset;
+    }
+
+    sliderList.style.left = -offset + 'px';
+    document.querySelector('.next-slide p').classList.remove('active-btn')
+    document.querySelector('.previously-slide p').classList.add('active-btn')
+})
 
 
 
+
+
+
+ 
 for (const slide of allSliders) {
     slide.addEventListener('click', ()=> {
         clearActiveClass()
 
          
-      slide.classList.add('active');
- 
-        activeSlide(slide)
+      slide.classList.toggle('active')
+      
     })
 
 }
