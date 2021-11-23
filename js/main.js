@@ -41,7 +41,7 @@ for (const slide of allSliders) {
         clearActiveClass()
 
          
-      slide.classList.toggle('active')
+      slide.classList.add('active')
       
     })
 

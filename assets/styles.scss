@@ -1348,13 +1348,13 @@ align-items: center;
 .copy-how-it-work-slider
 .copy-how-it-work-item.active {
   min-height: 12vh;
-  transition: 1s ease-in;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transition: 1s ease-in;
 
 }
 
 
-.copy-how-it-work-slider .copy-how-it-work-item.non-active {min-height: 0;}
+.copy-how-it-work-slider .copy-how-it-work-item {min-height: 0;}
  
   .copy-how-it-work-slider
   .copy-how-it-work-list {
