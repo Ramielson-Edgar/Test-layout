@@ -807,6 +807,7 @@ align-items: center;
    }
 }
 
+//registration-form
 .registration-form {
   h5 {
       text-transform: capitalize;
@@ -877,7 +878,7 @@ align-items: center;
           padding-right: 180px;
           position: relative;
           margin: 0;
-          background: var(--white) url("../img/icon-dropdown.svg")
+          background: var(--white) url("/img/icon-dropdown.svg")
               no-repeat;
           background-position: calc(100% - 28px) center;
           background-size: 10px auto;
@@ -918,7 +919,7 @@ align-items: center;
               box-shadow: none;
           }
           &.info {
-              background: url("../img/icon-info.svg") no-repeat center;
+              background: url("/img/icon-info.svg") no-repeat center;
           }
       }
       .strength {
@@ -950,9 +951,6 @@ align-items: center;
           right: 68px !important;
       }
   }
-
-
-
   .input-phone {
       position: relative;
       margin-bottom: 30px;
@@ -1044,7 +1042,7 @@ align-items: center;
               box-shadow: none;
           }
           &.info {
-              background: url("../img/icon-info.svg") no-repeat center;
+              background: url("/img/icon-info.svg") no-repeat center;
           }
       }
       &.has-error {
@@ -1052,9 +1050,140 @@ align-items: center;
               display: flex;
           }
       }
-
-      
   }
+  .pin-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      button {
+          width: 120px;
+          margin-right: 10px;
+          &.btn-help {
+              display: block;
+              position: absolute;
+              z-index: 10;
+              top: 0;
+              left: auto;
+              right: 0;
+              width: 38px;
+              height: 38px;
+              background: var(--white);
+              box-shadow: 0;
+              border-radius: 0;
+              margin-left: auto;
+              margin-right: 0;
+              background: url(/img/icon-info.svg) no-repeat center;
+          }
+      }
+      input {
+          width: 120px;
+          text-align: center;
+          font-size: 1rem;
+      }
+      &.has-error {
+          input {
+              box-shadow: 0 1px 0 var(--red500);
+          }
+      }
+  }
+  // .form-check {
+  //     padding-left: 0;
+  //     position: relative;
+  //     label {
+  //         font-size: 11px;
+  //         color: var(--grey500);
+  //     }
+  //     input {
+  //         position: absolute;
+  //         z-index: -1;
+  //         opacity: 0;
+  //         + label {
+  //             display: inline-flex;
+  //             align-items: flex-start;
+  //             user-select: none;
+  //             &::before {
+  //                 content: "";
+  //                 display: inline-block;
+  //                 width: 30px;
+  //                 height: 30px;
+  //                 flex-shrink: 0;
+  //                 flex-grow: 0;
+  //                 background: var(--grey300);
+  //                 margin-top: -5px;
+  //                 margin-right: 5px;
+  //                 background: url("../images/check-default.svg") no-repeat
+  //                     center;
+  //                 background-size: 100% 100%;
+  //             }
+  //         }
+  //         &:checked {
+  //             + label {
+  //                 &::before {
+  //                     border-color: #0b76ef;
+  //                     background: url("../images/check-checked.svg") no-repeat
+  //                         center;
+  //                     background-size: 100% 100%;
+  //                 }
+  //             }
+  //         }
+  //     }
+  //     .btn-help {
+  //         display: block;
+  //         position: absolute;
+  //         z-index: 10;
+  //         top: 0;
+  //         left: auto;
+  //         right: 0;
+  //         width: 38px;
+  //         height: 38px;
+  //         background: var(--white);
+  //         box-shadow: 0;
+  //         border-radius: 0;
+  //         margin-left: auto;
+  //         margin-right: 0;
+  //         &:hover,
+  //         &:focus,
+  //         &:active {
+  //             box-shadow: none;
+  //         }
+  //         &.info {
+  //             background: url("../images/icon-info.svg") no-repeat center;
+  //         }
+  //     }
+  // }
+}
+//verify-email
+.verify-email {
+  h3 {
+      font-size: 24px;
+      font-family: "Roboto-Bold";
+  }
+  h4 {
+      font-size: 18px;
+      font-family: "Roboto-Bold";
+      margin-bottom: 15px;
+  }
+  p {
+      line-height: 1.2;
+  }
+  .small {
+      margin-bottom: 8px;
+  }
+}
+//demo-registration-description
+.demo-registration-description {
+  padding-right: 60px;
+}
+
+//demo-registration-form
+.demo-registration-form {
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  margin-top: -60px;
+}
+
   .iti input, .iti input[type="text"], 
   .iti input[type="tel"] {
     position: relative;
@@ -1065,31 +1194,16 @@ align-items: center;
     margin-right: 0;
   }
  
-  .iti--allow-dropdown input, 
-  .iti--allow-dropdown input[type="text"],
-  .iti--allow-dropdown input[type="tel"], 
-  .iti--separate-dial-code input, 
-  .iti--separate-dial-code input[type="text"], 
-  .iti--separate-dial-code input[type="tel"] {
-    padding-right: 6px;
-    padding-left: 52px;
-    margin-left: 0;
-}
 
-  
 
-  .iti--allow-dropdown .iti__flag-container,
-  .iti--separate-dial-code
-  .iti__flag-container {
-    left: 0;
-  }
 
 
   .iti__flag-container {
     position: absolute;
     top: 0;
     bottom: 0;
-    padding: 1px;
+    right: 0;
+    padding: 1px; 
 }
 
 
@@ -1103,36 +1217,8 @@ align-items: center;
   align-items: center;
   height: 100%;
   padding: 0 6px 0 8px;
-  
-  .iti__flag.iti__ua {
-    height: 14px;
-    background-position: -5175px 0;
-  }
-
-  .iti__flag {
-    width: 20px;
-    height: 15px;
-    box-shadow: 0 0 1px 0 #888;
-    background-image: url("../img/flags.png");
-    background-repeat: no-repeat;
-    background-color: #dbdbdb;
-    background-position: 20px 0;
-  }
- 
-  .iti__arrow {
-    margin-left: 6px;
-    width: 0;
-    height: 0;
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
-    border-top: 4px solid #555;
-}
 
 }
-
-}
-
- 
 
 }
 

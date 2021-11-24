@@ -5,6 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
+        <link rel="stylesheet" href="assets/intlTelInput.css">
+        <!-- <link rel="stylesheet" href="assets/intlTelInput.min.css"> -->
         <link rel="stylesheet" href="assets/bootstrap.min.css" />
         <link rel="stylesheet" href="assets/styles.css" />
         <title>Document</title>
@@ -581,14 +583,11 @@
                                       <button type="button" class="btn btn-help info" data-toggle="tooltip" data-placement="top" title="Please enter your Country of residence"></button>
                                     </div>
                                     <div class="form-group input-field input-phone">   
-                                        <div class="iti iti_allow-dropdown">
+                                        <div class="iti iti--allow-dropdown">
                                             <div class="iti__flag-container">
-                                                <div class="iti__selected-flag">
-                                                    <div class="iti__flag iti__ua"></div>
-                                                    <div class="iti__arrow"></div>
-                                                </div>
+                                                <div class="iti_selected-flag"></div>
                                             </div>
-                                            <input id="phone" class="form-control fill redline"  aria-describedby="nameHelp" autocomplete="off" data-intl-tel-input-id="0" type="tel" name="phone"  placeholder="050 123 4567">
+                                            <input id="phone" class="form-control fill redline" aria-describedby="nameHelp" autocomplete="off" name="phone" type="tel" data-intl-tel-input-id="0"  placeholder="">
                                         </div>
                                       
                                       <label for="phone">Phone Number</label>
@@ -615,11 +614,77 @@
           
                
         </section>
-   
+        
+        <script src="js/intlTelInput-jquery.min.js"></script>
+        <script src="js/intlTelInput.min.js"></script>
         <script type="module" src="js/bootstrap.min.js"></script>
         <script src="js/srcrolreveal.min.js" ></script>
         <script type="module"src='js/main.js' ></script>
-     
 
+        <script>
+            jQuery(document).ready(function($) {
+                $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    });
+        })
+        </script>
+    <!--	REGISTRATION INPUTS-->
+        <script>
+            jQuery(document).ready(function($) {
+                $("#registrationForm .input-control").blur(function(){
+                    if($(this).val() == ''){
+                        $(this).addClass('empty').removeClass('fill');
+                        
+        }
+                    else{
+                        $(this).removeClass('empty').addClass('fill'); 
+                        
+                    };
+    });
+    
+        $("select.country").change(function(){
+            var selectedCountry = $(this).children("option:selected").val();
+            console.log(selectedCountry);
+            if(selectedCountry == 'no'){
+                        
+                        $(this).addClass('empty').removeClass('fill');
+        }
+                    else{
+                        $(this).removeClass('empty').addClass('fill');
+                        
+                        
+                    };
+            
+        });
+    
+            })
+        </script>
+    <!--INTELINPUT-->
+        <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+          // allowDropdown: false,
+          // autoHideDialCode: false,
+          // autoPlaceholder: "off",
+          // dropdownContainer: document.body,
+          // excludeCountries: ["us"],
+          // formatOnDisplay: false,
+          // geoIpLookup: function(callback) {
+          //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+          //     var countryCode = (resp && resp.country) ? resp.country : "";
+          //     callback(countryCode);
+          //   });
+          // },
+          // hiddenInput: "full_number",
+          // initialCountry: "auto",
+          // localizedCountries: { 'de': 'Deutschland' },
+          // nationalMode: false,
+          // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+          // placeholderNumberType: "MOBILE",
+          // preferredCountries: ['cn', 'jp'],
+          // separateDialCode: true,
+          utilsScript: "js/utils.js",
+        });
+      </script>
     </body>
 </html>
