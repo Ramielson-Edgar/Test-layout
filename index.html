@@ -52,7 +52,7 @@
             </div>
         </section>
 
-        <section class="copy-features-section decor-section-2 icon-up">
+        <section class="copy-features-section shou  decor-section-2 icon-up">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-12">
@@ -156,7 +156,7 @@
             </div>
         </section>
 
-        <section class="copy-trading-platform-section decor-section-3">
+        <section class="copy-trading-platform-section shou decor-section-3">
             <div class="container">
                 <div class="row first-row">
                     <div class="col-12 col-lg-6 col-md-10 col-sm-12">
@@ -263,14 +263,14 @@
             </div>
         </section>
 
-        <section class="copy-how-it-work-section">
+        <section class="copy-how-it-work-section shou ">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <header class="copy-how-it-work-header">
                             <h2  class="icon-wave fw-bold">
                                 How does copy trading work? 
-                                <p>Copy trading is automated trading made easy. 
+                                <p >Copy trading is automated trading made easy. 
                                     Here’s a simple step-by-step guide.</p>
                             </h2>
                         </header>
@@ -615,76 +615,80 @@
                
         </section>
         
+
+        <script src="js/jquery-3.6.0.min.js"></script>
         <script src="js/intlTelInput-jquery.min.js"></script>
         <script src="js/intlTelInput.min.js"></script>
         <script type="module" src="js/bootstrap.min.js"></script>
         <script src="js/srcrolreveal.min.js" ></script>
-        <script type="module"src='js/main.js' ></script>
-
+        
         <script>
             jQuery(document).ready(function($) {
                 $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    });
+                    $('[data-toggle="tooltip"]').tooltip()
+                });
+            })
+            </script>
+    <!--	REGISTRATION INPUTS-->
+    <script>
+        jQuery(document).ready(function($) {
+            $("#registrationForm .input-control").blur(function(){
+                if($(this).val() == ''){
+                    $(this).addClass('empty').removeClass('fill');
+                    
+                }
+                else{
+                    $(this).removeClass('empty').addClass('fill'); 
+                    
+                };
+            });
+            
+            $("select.country").change(function(){
+                var selectedCountry = $(this).children("option:selected").val();
+                console.log(selectedCountry);
+                if(selectedCountry == 'no'){
+                    
+                    $(this).addClass('empty').removeClass('fill');
+                }
+                else{
+                    $(this).removeClass('empty').addClass('fill');
+                    
+                    
+                };
+                
+            });
+            
         })
         </script>
-    <!--	REGISTRATION INPUTS-->
-        <script>
-            jQuery(document).ready(function($) {
-                $("#registrationForm .input-control").blur(function(){
-                    if($(this).val() == ''){
-                        $(this).addClass('empty').removeClass('fill');
-                        
-        }
-                    else{
-                        $(this).removeClass('empty').addClass('fill'); 
-                        
-                    };
-    });
-    
-        $("select.country").change(function(){
-            var selectedCountry = $(this).children("option:selected").val();
-            console.log(selectedCountry);
-            if(selectedCountry == 'no'){
-                        
-                        $(this).addClass('empty').removeClass('fill');
-        }
-                    else{
-                        $(this).removeClass('empty').addClass('fill');
-                        
-                        
-                    };
-            
-        });
-    
-            })
-        </script>
     <!--INTELINPUT-->
-        <script>
+    <script>
         var input = document.querySelector("#phone");
         window.intlTelInput(input, {
-          // allowDropdown: false,
-          // autoHideDialCode: false,
-          // autoPlaceholder: "off",
-          // dropdownContainer: document.body,
-          // excludeCountries: ["us"],
-          // formatOnDisplay: false,
-          // geoIpLookup: function(callback) {
-          //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-          //     var countryCode = (resp && resp.country) ? resp.country : "";
-          //     callback(countryCode);
-          //   });
-          // },
-          // hiddenInput: "full_number",
-          // initialCountry: "auto",
-          // localizedCountries: { 'de': 'Deutschland' },
-          // nationalMode: false,
-          // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-          // placeholderNumberType: "MOBILE",
-          // preferredCountries: ['cn', 'jp'],
-          // separateDialCode: true,
-          utilsScript: "js/utils.js",
-        });
-      </script>
-    </body>
+            // allowDropdown: false,
+            // autoHideDialCode: false,
+            // autoPlaceholder: "off",
+            // dropdownContainer: document.body,
+            // excludeCountries: ["us"],
+            // formatOnDisplay: false,
+            // geoIpLookup: function(callback) {
+                //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+                    //     var countryCode = (resp && resp.country) ? resp.country : "";
+                    //     callback(countryCode);
+                    //   });
+                    // },
+                    // hiddenInput: "full_number",
+                    // initialCountry: "auto",
+                    // localizedCountries: { 'de': 'Deutschland' },
+                    // nationalMode: false,
+                    // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+                    // placeholderNumberType: "MOBILE",
+                    // preferredCountries: ['cn', 'jp'],
+                    // separateDialCode: true,
+                    utilsScript: "js/utils.js",
+                });
+                </script>
+
+
+<script type="module"src='js/main.js' ></script>
+</body>
 </html>

@@ -39,10 +39,10 @@ document.querySelector('.previously-slide').addEventListener('click', ()=> {
 for (const slide of allSliders) {
     slide.addEventListener('click', ()=> {
         clearActiveClass()
-
+    
          
-      slide.classList.add('active')
-      
+      slide.classList.toggle('active')
+      slide.classList.toggle('non-active')
     })
 
 }
@@ -69,3 +69,6 @@ const slideUp = {
 
 ScrollReveal().reveal('.copy-hero-section .copy-header, .copy-features-header, .copy-trading-platform-header, .copy-how-it-work-section',  slideUp);
 ScrollReveal().reveal( `.copy-trading-platform-features-item , .registration-form, .copy-features-wrapper, .try-out-wrapper, .copy-trading-platform-banner`, slideUp);
+
+
+ 
