@@ -1,19 +1,32 @@
 const allSliders =document.querySelectorAll('.copy-how-it-work-item');
 const sliderList = document.querySelector('.copy-how-it-work-list')
 
-
 let offset = 0
+  
 document.querySelector('.next-slide').addEventListener('click', ()=> {
-    offset = offset + 458;
+    offset = offset + 277.5;
+
+    for (const slide of allSliders) {
+ 
+        slide.addEventListener('click', ()=> {
+        
+        
+       })
     
+    
+    }
+
+ 
     if(offset > 1374) {
         offset = 0
         sliderList.style.left = offset;
     }
 
+
     sliderList.style.left = -offset + 'px';
     document.querySelector('.next-slide p').classList.add('active-btn')
     document.querySelector('.previously-slide p').classList.remove('active-btn')
+
 })
 
 
@@ -22,7 +35,7 @@ document.querySelector('.previously-slide').addEventListener('click', ()=> {
     
     if(offset < 0)  {
          offset = 1374;
-        sliderList.style.left = offset;
+         sliderList.style.left = offset;
     }
 
     sliderList.style.left = -offset + 'px';
@@ -31,21 +44,23 @@ document.querySelector('.previously-slide').addEventListener('click', ()=> {
 })
 
 
+for (const slide of allSliders) {
+ 
+    slide.addEventListener('click', ()=> {
+       clearActiveClass()
+   
+        
+     slide.classList.toggle('active')
+    //  slide.classList.toggle('non-active')
+    
+   })
 
+
+}
 
 
 
  
-for (const slide of allSliders) {
-    slide.addEventListener('click', ()=> {
-        clearActiveClass()
-    
-         
-      slide.classList.toggle('active')
-      slide.classList.toggle('non-active')
-    })
-
-}
 
 function clearActiveClass() {
     allSliders.forEach((slide)=> {
@@ -53,6 +68,10 @@ function clearActiveClass() {
 
     })
 }
+
+
+
+ 
 
 
 const slideUp = {

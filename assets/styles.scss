@@ -616,6 +616,7 @@ align-items: center;
       }
 
         .copy-how-it-work-item {
+          width: 458.5px;
           height: 371px;
           color: var(--white);
           background-color: #0F082E;
@@ -632,13 +633,6 @@ align-items: center;
 
           overflow: hidden;
 
-          .test-bg {
-            width: 100%;
-            height: 330px;
-
-            background-color: #fff;
-          }
-          
           .primary-state {
             display: flex;
             flex-direction: column;
@@ -1374,9 +1368,11 @@ align-items: center;
   .decor-section-3 {background-image: url('');}
   .decor-section-4 {background-position: -560px 110px;}
   
-    .try-out-copy-trading .demo-registration-form {
-      margin-top: 60px;
-    }
+  .try-out-copy-trading .demo-registration-form {margin-top: 60px;}
+
+  .copy-features-section  { 
+    &.shou::before {left: 15%;}
+  }
 
 
 .copy-trading-platform-section {
@@ -1473,7 +1469,6 @@ align-items: center;
     }
     
 
-
  .copy-how-it-work-slider
  .copy-how-it-work-list
  .copy-how-it-work-item:not(:first-child).active {display: block;}
@@ -1540,7 +1535,7 @@ align-items: center;
 
 @media (max-width: 575.98px) {
   
-
+ 
   hr {
   width: 300px;
   margin: 0 auto;
@@ -1595,6 +1590,11 @@ align-items: center;
 
   .copy-features-section {
     padding: 0px;
+
+    &.shou::before {
+    left: 50%;
+    top: -40px;
+    }
     
     .copy-features-header {text-align: center;}
     .copy-features-header h2 { padding-left: 0;}
@@ -1631,6 +1631,7 @@ align-items: center;
 
        .copy-features-item {
          justify-content: center;
+      
         .copy-body {
           text-align: center;
            p {    max-width: 100%;}
@@ -1644,6 +1645,12 @@ align-items: center;
  
 
   .copy-how-it-work-section {
+      &.shou::before {
+        left: 52%;
+      top: -20px;
+      }
+
+    .copy-how-it-work-item {width: 477.5px;}
 
     .copy-how-it-work-header {
       text-align: center;
@@ -1718,4 +1725,41 @@ align-items: center;
   }
 
  
- 
+ @media (max-width: 320px) {
+
+  .copy-features-section {
+    .copy-features-header::before {left: 130px;}
+
+  }
+
+  
+  .copy-trading-platform-section {
+  &.shou::before {
+  top: -40px;
+  left: 170px;
+  }
+
+  }
+
+   .copy-how-it-work-section {
+   
+     &.shou::before {
+      left: 50%;
+      top: -20px;
+     }
+    
+     .copy-how-it-work-slider {
+
+
+      .copy-how-it-work-list {
+        .copy-how-it-work-item:not(.active),
+        .copy-how-it-work-item.active {
+          width: 277.5px;
+          height: auto;
+        } 
+       }
+     }
+      
+   }
+   
+ }
