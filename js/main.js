@@ -1,48 +1,79 @@
 const allSliders =document.querySelectorAll('.copy-how-it-work-item');
 const sliderList = document.querySelector('.copy-how-it-work-list')
-const animationContainers = document.querySelectorAll('.animation-container')
- 
+const animationContainers = document.querySelectorAll('.animation-bar')
+
+const nextSlide = document.querySelector('.next-slide')
+const previouslySlide = document.querySelector('.previously-slide')
 
 
 // SLIDER
 // смешения
-let offset = 0
+
  
+let viewportWidth = window.innerWidth && document.documentElement.clientWidth ? 
+Math.min(window.innerWidth, document.documentElement.clientWidth) : 
+window.innerWidth || 
+document.documentElement.clientWidth || 
+document.getElementsByTagName('body')[0].clientWidth;
+
+let offset = 0
+
+console.log(viewportWidth)
+ 
+
 // Управления слайдером вперёд
-document.querySelector('.next-slide').addEventListener('click', ( )=> {
-     offset += 458;
+nextSlide.addEventListener('click', ( )=> {
 
-        
-        if(offset > 1374) {
-            offset = 0
-            sliderList.style.left = offset;
-            return
-        }
+    offset += viewportWidth  <=  575 &&  277.5 || viewportWidth <= 767 && 445;
 
-        sliderList.style.left = -offset + 'px';
-        document.querySelector('.next-slide p').classList.add('active-btn')
-        document.querySelector('.previously-slide p').classList.remove('active-btn')
+    if(viewportWidth <= 575 && offset > 832.5) {
+        offset = 0
+        sliderList.style.left = offset;
+        return
+    }
+
+ 
+    if(viewportWidth <= 767 && offset > 1377) {
+    offset = 0
+    sliderList.style.left = offset;
+    return
+    }
+
+    sliderList.style.left = -offset + 'px';
+    document.querySelector('.next-slide p').classList.add('active-btn')
+    document.querySelector('.previously-slide p').classList.remove('active-btn')
 })
 
  
 // Управления слайдером назад
- document.querySelector('.previously-slide').addEventListener('click', ()=> {
-        offset -= 458;
+    previouslySlide.addEventListener('click', ()=> {
 
+    offset -= viewportWidth  <=  575 &&  277.5 || viewportWidth <= 767 && 445;
 
-        if(offset < 0)  {
-             offset = 1374;
-             sliderList.style.left = offset;
-             return
-        }
+    if(viewportWidth <= 575 && offset < 0) {
+     offset = 832.5;
+     sliderList.style.left = offset;
+   
+    } 
     
-        sliderList.style.left = -offset + 'px';
-        document.querySelector('.next-slide p').classList.remove('active-btn')
-        document.querySelector('.previously-slide p').classList.add('active-btn')
+
+   if(viewportWidth  <= 767 && offset < 0) {
+    offset = 1335;
+    sliderList.style.left = offset;
+
+   } 
+   
+
+   
+
+    sliderList.style.left = -offset + 'px';
+    document.querySelector('.next-slide p').classList.remove('active-btn')
+    document.querySelector('.previously-slide p').classList.add('active-btn')
 })
     
     
 // По клику вешаю активный класс 
+
     for (const slide of allSliders) {
 
         slide.addEventListener('click', (event)=> {
@@ -51,7 +82,7 @@ document.querySelector('.next-slide').addEventListener('click', ( )=> {
         slide.classList.add('active')
    
 
-        // if( event.target !== animationContainers) {
+        // if(viewportWidth === 320 && event.target !== animationContainers) {
         // offset+=277.5;
         // sliderList.style.left = -offset + 'px';
          
@@ -71,6 +102,7 @@ document.querySelector('.next-slide').addEventListener('click', ( )=> {
     
 
 // Сбрасываюс события активного слайда
+
 function clearActiveClass() {
     allSliders.forEach((slide)=> {
         slide.classList.remove('active')
@@ -82,14 +114,10 @@ function clearActiveClass() {
 // SHOW ANIMATION BAR
 function showAnimationBar () {
     for(const animationContainer of animationContainers ) {
-        animationContainer.addEventListener('click', (event)=> {
+        animationContainer.addEventListener('click', ()=> {
   
-         
                 animationContainer.classList.toggle('show-vid')
                 animationContainer.classList.toggle('hide-vid')
-               
-            
-                   
                 })
     }
  
